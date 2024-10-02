@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+	<h1 style="text-align: center;">{{current_user.username}}</h1>
+	<div class="posts">
+		<meta name="csrf-token" content="{{ csrf_token() }}">
+		<!--create a new card for each post contating the posts content-->
+		{% for post in posts %}
+			<div class="card">
+				<div class="card-header">
+					<a style="color: #b280ed;">
+						<i class="fa-regular fa-circle-user"></i> {{post.user.username}}
+					</a>
+					<p class="date text-muted">{{'{:%m/%d/%y %H:%M}'.format(post.date)}}</p>
+					<!--if the post was edited display an indicator on the post-->
+					{% if post.edited %}
+						<p class="edited">(Edited)</p>
+					{% endif %}
+				</div>
+				<div class="card-body">
+					<!--if post title is not empty then add the posts title-->
+					{% if post.title != "" %}
+					<h3 class="card-title"> </text>{{post.title}}</h3>
+					<hr>
+					{%endif%}
+					<p class="card-text"><textarea readonly id="content">{{post.content}}</textarea></p>
+				</div>
+				<div class="card-footer">
+					<!--if user has already liked the post then display a solid red heart as the like button-->
+					{% if user.userID in post.likes|map(attribute="userID")|list %}
+						<a class="like" id="{{post.postID}}">
+							<i class="fa-solid fa-heart" id="{{post.postID}}"></i><span id="likes-count-{{post.postID}}"> {{post.likes|length}}</span>
+						</a>
+					{% else %}
+					<!--otherwise display a hollow grayed out heart as the like button-->
+					<a class="like" id="{{post.postID}}">
+						<i class="fa-regular fa-heart" id="{{post.postID}}"></i><span id="likes-count-{{post.postID}}"> {{post.likes|length}}</span>
+					</a>
+					{% endif %}
+					<!--add delete and edit buttons with no check as all posts here are owned by current user-->
+					<a class="delete" href="/delete/{{post.postID}}" style="color: #e44441;">
+						<i class="fa-regular fa-trash-can" style="color: #e44441;"></i> Delete
+					</a>
+					<a class="edit" href="/edit-post/{{post.postID}}" style="color: #FFBF00;">
+						<i class="fa-solid fa-pen-to-square" style="color: #FFBF00;"></i> Edit
+					</a>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
+</body>
+{% endblock content %}

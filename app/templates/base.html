@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.min.js') }}" ></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/624313f367.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='main.js') }}" ></script>    
+    
+    <!-- if template provided a title then set it as current pages title-->
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title> No title specified</title>
+    {% endif %}
+
+  </head>
+  <nav class="navbar fixed-top navbar-expand-sm navbar-dark" style="background-color: #1f1f1f;">
+    <a class="navbar-brand" style="color: white;" href="{{url_for('index')}}">Marr</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item"><a class="nav-link" href="{{url_for('createpost')}}"><i class="fa-regular fa-square-plus"></i> Create post</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{url_for('favourites')}}"><i class="fa-solid fa-heart" style="color:inherit";></i> Favourites</a></li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu"> 
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa-regular fa-circle-user"></i>
+                Profile
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{url_for('myaccount')}}"><i class="fa-regular fa-user"></i> Account</a>
+                <a class="dropdown-item" href="{{url_for('settings')}}"><i class="fa-solid fa-gear"></i> Settings</a>
+                <hr>
+                <a class="dropdown-item" href="{{url_for('logout')}}"> <i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+              </div>
+            </ul>
+      </div>
+    </div>
+  </nav>
+  <!--any error/success flashes made in views.py will be displayed at top of page-->
+  <div class="messages">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+  {% endwith %}
+  </div>
+
+  <body>
+    <div>
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+
+  </html>

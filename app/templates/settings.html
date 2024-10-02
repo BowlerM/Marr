@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+
+	<!--display any form errors at the top of the page-->
+	{% for error in form.username.errors %}
+	<ul class="flashes"><li class="error">[{{ error }}]<li></ul>
+	{% endfor %}
+
+	{% for error in form.email.errors %}
+		<ul class="flashes"><li class="error">[{{ error }}]<li></ul>
+	{% endfor %}
+
+	{% for error in form.password.errors %}
+	<ul class="flashes"><li class="error">[{{ error }}]<li></ul>
+	{% endfor %}
+	
+	<h1 style="text-align: center;">Settings</h1>
+	<div class="details">
+		<form action="" method="post" name="register">
+			{{ form.hidden_tag() }}
+			<div class ="card">	
+				<div class="card-body">
+					<div class="settings-field">
+						<label for="username">
+							<i class="fa fa-user-circle-o"></i>
+						</label>
+						  {{ form.username(class="text-field") }}
+					</div>
+					<div class="settings-field">
+						<label for="email">
+							<i class="fa fa-envelope"></i>
+						</label>
+						  {{ form.email(class="text-field") }}
+					</div>
+					<div class="settings-field">
+						<label for="password">
+							<i class="fa fa-lock"></i>
+						</label>
+						  {{ form.password(class="text-field") }}
+					</div>
+					<div class="settings-field">
+						<input class="settings-button" type="submit" value="Change Details">
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+	<div class="details">
+		<button id="{{user.userID}}" class="delete-account">Delete Account</button>
+	</div>
+</body>
+{% endblock content %}

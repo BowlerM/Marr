@@ -1,0 +1,250 @@
+body{
+    background-color:  #121212;
+    color: #cdcdcd;
+    padding-top: 75px;
+}
+
+div.posts, div.details{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+div.card{
+    background-color: #1f1f1f;
+    margin-bottom: 50px;
+}
+
+div.card-header{
+    border-color: #121212;;
+}
+
+div.card-footer{
+    border-color: #121212;;
+}
+
+hr{
+    background-color: #cdcdcd;;
+}
+
+.profile-menu .dropdown-menu {
+    background-color: #cdcdcd;
+    right: 0;
+    left: unset;
+}
+
+input#title{
+    background-color: transparent;
+    border:0;
+    color: #cdcdcd;
+    width: 100%;
+}
+
+input#title:focus{
+    outline: none;
+}
+
+textarea#content{
+    background-color: transparent;
+    border:0;
+    color: #cdcdcd;
+    width: 100%;
+    resize:none;
+}
+
+textarea#content:focus{
+    outline: none;
+}
+
+input.post-button{
+    background-color: transparent;
+    color: #b280ed;
+    border: 2px solid;
+    border-radius: 0.6em;
+    border-color: #b280ed;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    float:right;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: transparent;
+      background-color: #b280ed;
+    }
+}
+
+ul.flashes{
+    list-style: none;
+}
+
+p.date{
+    float:right;
+    margin: 0;
+}
+
+p.edited{
+    float:right;
+    margin: 0;
+    margin-right: 10px;
+}
+
+li.error{
+    border: 2px solid rgb(203, 18, 18);
+    color:#ECECEC;
+    border-radius: 5px;
+    background-color: rgba(235, 14, 14, 0.482);
+    padding: 10px 0px 10px 10px;
+    margin: 5px 0px 10px 0px;
+
+}
+
+li.success{
+    border: 2px solid rgb(89, 203, 18);
+    border-radius: 5px;
+    color:#ECECEC;
+    background-color: rgba(14, 235, 66, 0.277);
+    padding: 10px 0px 10px 10px;
+    margin: 5px 0px 10px 0px;
+}
+
+i.fa-regular.fa-heart:hover{
+    color: #e44441;
+}
+
+i.fa-solid.fa-heart{
+    color: #e44441;
+}
+
+a.like{
+    cursor: pointer;
+}
+
+a.delete{
+    cursor: pointer;
+    float: right;
+}
+
+a.edit{
+    padding-right: 30px;
+    cursor: pointer;
+    float: right;
+}
+
+div.settings-field{
+    padding: 20px 0px 20px 0px;
+    min-width: fit-content;
+}
+
+input#password, input#email, input#username{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #cdcdcd;
+    color: #cdcdcd;
+}
+
+input#password:focus, input#email:focus, input#username:focus{
+    outline: none;
+    border-bottom: 1px solid #b280ed;
+}
+
+label{
+    background: transparent;
+    color: #b280ed;
+    text-align: center;
+    font-size: 25px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 0;
+}
+
+div.settings-field{
+    padding: 20px 0px 20px 0px;
+    min-width: fit-content;
+}
+
+input.text-field{
+    height: 45px;
+    width: 90%;
+    border-left: 0;
+}
+
+input.settings-button{
+    background-color: transparent;
+    color: #b280ed;
+    border: 2px solid;
+    border-radius: 0.6em;
+    border-color: #b280ed;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    font-size: 22px;
+    float: right;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: transparent;
+      background-color: #b280ed;
+    }
+}
+
+button.delete-account {
+    margin-right: 20px;
+    background-color: transparent;
+    color: #e44441;
+    border: 2px solid;
+    border-radius: 0.6em;
+    border-color: #e44441;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    font-size: 22px;
+    float: right;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: transparent;
+      background-color: #e44441;
+    }
+}
+
+@media (max-width: 600px){
+    h1{
+        font-size: 32px;
+    }
+
+    a{
+        font-size: 14px;
+    }
+
+    div.posts, div.details{
+        width: 80%;
+    }
+
+    textarea{
+        font-size: 14px;
+    }
+
+    h3{
+        font-size: 20px;
+    }
+
+    input.text-field{
+        height:24px;
+        width: 80%;
+        font-size: 14px;
+    }
+
+    ul.flashes{
+        font-size: 16px;
+        padding: 0px 20px 0px 20px;
+    }
+
+    input.settings-button{
+        font-size: 16px;
+    }
+
+    button.delete-account {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<body>
+    <!--display any form errors at the top of the page-->
+    {% for error in form.content.errors %}
+        <ul class="flashes"><li class="error">[{{ error }}]<li></ul>
+    {% endfor %}
+	<h1 style="text-align: center;">Edit Post</h1>
+	<div class="posts">
+        <form action="" method="post" name="editPost">
+            {{ form.hidden_tag() }}
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">{{form.title}}</h3>
+                    <hr>
+                    <p class="card-text">{{form.content}}</p>
+                    <!--used for auto resizing text boxes when text is entered/removed-->
+                    <script type="text/javascript">
+                        textarea = document.querySelector("#content");
+                        textarea.addEventListener('input', autoResize, false);
+                 
+                        function autoResize() {
+                            this.style.height = 'auto';
+                            this.style.height = this.scrollHeight + 'px';
+                        }
+                    </script>
+                </div>
+                <div class="card-footer"><input class="post-button" type="submit" value="Edit Post"></div>
+            </div>
+        </form>
+	</div>
+</body>
+{% endblock content %}

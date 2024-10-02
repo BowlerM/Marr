@@ -1,0 +1,164 @@
+body{
+    background-color:  #121212;
+    color: #cdcdcd;
+}
+
+
+div.login {
+    border-radius: 10px;
+    padding: 25px 75px 25px 75px;
+    background-color: #1f1f1f;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    min-width: 50%;
+  }
+
+
+
+h1{
+    font-size: 72px;
+    text-align: center;
+    border-bottom: double;
+    padding-bottom: 10px;
+}
+
+a{
+    color: #9fa0aa;;
+    padding-right: 20px;
+    font-size: 32px;
+}
+
+a:hover{
+    color: #ECECEC;
+}
+
+a.active{
+    pointer-events: none;
+    color: #ECECEC;
+    text-decoration: underline;;
+}
+
+
+div.login-field{
+    padding: 20px 0px 20px 0px;
+    min-width: fit-content;
+}
+
+input.text-field{
+    height: 45px;
+    width: 90%;
+    border-left: 0;
+}
+
+input.login-button{
+    background-color: transparent;
+    color: #b280ed;
+    border: 2px solid;
+    border-radius: 0.6em;
+    border-color: #b280ed;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    font-size: 22px;
+    float:right;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+      border-color: transparent;
+      background-color: #b280ed;
+    }
+}
+
+label{
+    background: transparent;
+    color: #b280ed;
+    text-align: center;
+    font-size: 25px;
+    height: 45px;
+    width: 45px;
+    margin-bottom: 0;
+}
+
+input#password, input#email, input#username{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #cdcdcd;
+    color: #cdcdcd;
+}
+
+input#password:focus, input#email:focus, input#username:focus{
+    outline: none;
+    border-bottom: 1px solid #b280ed;
+}
+
+
+div.messages {
+
+    border-radius: 10px;
+    padding: 5px 5px 0px 0px;
+    margin: 0;
+    width: 98%;
+    display: inline-block;
+}
+
+ul.flashes{
+    list-style: none;
+}
+
+li.error{
+    border: 2px solid rgb(203, 18, 18);
+    color:#ECECEC;
+    border-radius: 5px;
+    background-color: rgba(235, 14, 14, 0.482);
+    padding: 10px 0px 10px 10px;
+    margin: 5px 0px 10px 0px;
+
+}
+
+li.success{
+    border: 2px solid rgb(89, 203, 18);
+    border-radius: 5px;
+    color:#ECECEC;
+    background-color: rgba(14, 235, 66, 0.277);
+    padding: 10px 0px 10px 10px;
+    margin: 5px 0px 10px 0px;
+}
+
+@media (max-width: 600px){
+    div.login{
+        width: 80%;
+    }
+
+    h1{
+        font-size: 32px;
+    }
+
+    a{
+        font-size: 20px;
+    }
+
+    input.text-field{
+        height:24px;
+        width: 80%;
+    }
+    label{
+        font-size: 20px;
+        height: 0px;
+        width: 25px;
+    }
+
+    ul.flashes{
+        font-size: 16px;
+        padding: 0px 20px 0px 20px;
+    }
+
+    input.login-button{
+        font-size: 16px;
+    }
+    
+}
